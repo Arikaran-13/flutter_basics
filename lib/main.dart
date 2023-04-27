@@ -1,8 +1,16 @@
 import "package:flutter/material.dart";
 
-void main() => runApp(IdWidget());
+void main() => runApp(Home());
 
-class IdWidget extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() {
+    return HomeState();
+  }
+}
+
+class HomeState extends State<Home> {
+  int softwareLevel = 0;
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -19,6 +27,13 @@ class IdWidget extends StatelessWidget {
               centerTitle: true,
               backgroundColor: Colors.grey[800],
               elevation: 0.0,
+            ),
+            floatingActionButton: FloatingActionButton(
+              onPressed: () => {
+                setState(() => {softwareLevel += 1})
+              },
+              child: Icon(Icons.add),
+              backgroundColor: Colors.grey[800],
             ),
             body: Padding(
               padding: EdgeInsets.fromLTRB(25.0, 50.0, 25.0, 0.0),
@@ -68,6 +83,21 @@ class IdWidget extends StatelessWidget {
                         color: Colors.amber[400],
                         letterSpacing: 1.0,
                         fontSize: 22.0),
+                  ),
+                  SizedBox(height: 25.0),
+                  Text(
+                    "Software developer",
+                    style:
+                        TextStyle(letterSpacing: 2.0, color: Colors.grey[400]),
+                  ),
+                  Text(
+                    '$softwareLevel',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: Colors.amber,
+                      fontSize: 22.0,
+                      letterSpacing: 1.0,
+                    ),
                   ),
                   SizedBox(height: 25.0),
                   Row(
