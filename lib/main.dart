@@ -27,6 +27,7 @@ class HomeState extends State<Home> {
           title: Text("Awesome Quotes"),
           centerTitle: true,
           backgroundColor: Colors.redAccent,
+          elevation: 0.0,
         ),
         body: Center(
           child: Column(
